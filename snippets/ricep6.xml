@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <!-- RiceDroidOOS P6 additions -->
+  <project path="android" name="Creative-OS/android" />
+  <project path="bootable/recovery" name="Creative-OS/android_bootable_recovery" groups="pdk" />
+  <project path="build/soong" name="Creative-OS/android_build_soong" groups="pdk,tradefed" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <project path="build/make" name="Creative-OS/android_build" groups="pdk" >
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="device/google/raviole" remote="github" name="Creative-OS/android_device_google_raviole" />
+  <project path="device/google/gs101" remote="github" name="Creative-OS/android_device_google_gs101" />
+  <project path="device/lineage/sepolicy" name="Creative-OS/android_device_lineage_sepolicy" />
+  <project path="external/AndroidSystemBlur" name="Creative-OS/android_external_AndroidSystemBlur" />
+
+  <project name="Creative-OS/android_external_noto-fonts" path="external/noto-fonts" />
+  <project name="Creative-OS/android_external_roboto-fonts" path="external/roboto-fonts" />
+  <project name="Creative-OS/android_external_google-fonts_cutive-mono" path="external/google-fonts/cutive-mono" />
+
+  <project path="external/faceunlock" name="Creative-OS/android_external_faceunlock" remote="gitlab" revision="lineage-20.0" />
+  <project path="external/colorkt" name="crdroidandroid/android_external_colorkt" remote="github" revision="13.0" />
+  <project path="external/themelib" name="crdroidandroid/android_external_themelib" remote="github" revision="13.0" />
+
+  <project path="frameworks/av" name="Creative-OS/android_frameworks_av" groups="pdk" />
+  <project path="frameworks/base" name="Creative-OS/android_frameworks_base" groups="pdk-cw-fs,pdk-fs" />
+  <project path="frameworks/libs/net" name="Creative-OS/android_frameworks_libs_net" groups="pdk-cw-fs,pdk-fs" />
+  <project path="frameworks/libs/systemui" name="Creative-OS/android_frameworks_libs_systemui" groups="pdk-cw-fs,pdk-fs" />  
+  <project path="frameworks/native" name="Creative-OS/android_frameworks_native" groups="pdk" />
+  <project path="frameworks/opt/telephony" name="LineageOS/android_frameworks_opt_telephony" groups="pdk" />
+  <project path="kernel/google/gs101/private/gs-google" remote="github" name="Creative-OS/android_kernel_google_gs101" />
+  <project name="kdrag0n/android_packages_apps_RepainterServicePriv" path="packages/apps/RepainterServicePriv" revision="main" />
+  <project path="lineage-sdk" name="Creative-OS/android_lineage-sdk" />
+
+  <project path="packages/apps/crDroidSettings" name="Creative-OS/android_packages_apps_crDroidSettings" groups="pdk-fs" />
+  <project path="packages/apps/FaceUnlockService" name="Creative-OS/android_packages_apps_FaceUnlockService" />
+  <project path="packages/apps/GameSpace" name="ricedroidOSS/android_packages_apps_GameSpace" revision="thirteen" />
+  <project path="packages/apps/Launcher3" name="Creative-OS/android_packages_apps_Launcher3" />
+  <project path="packages/apps/LineageParts" name="Creative-OS/android_packages_apps_LineageParts" />
+  <project path="packages/apps/Settings" name="Creative-OS/android_packages_apps_Settings" groups="pdk-fs"  />
+  <project path="packages/apps/ThemePicker" name="Creative-OS/android_packages_apps_ThemePicker" groups="pdk-fs" />
+  <project path="packages/modules/Connectivity" name="Creative-OS/android_packages_modules_Connectivity" groups="pdk-cw-fs,pdk-fs" />
+  <project path="packages/modules/Permission" name="Creative-OS/android_packages_modules_Permission" groups="pdk-cw-fs,pdk-fs" />
+  <project path="packages/services/Telecomm" name="Creative-OS/android_packages_services_Telecomm" groups="pdk-cw-fs,pdk-fs" />
+
+  <project path="system/core" name="Creative-OS/android_system_core" groups="pdk" />
+  <project path="system/sepolicy" name="Creative-OS/android_system_sepolicy" groups="pdk" />
+  <project path="packages/apps/ParallelSpacePrebuilt" name="Project-Kaleidoscope/android_packages_apps_ParallelSpacePrebuilt" remote="gitlab" revision="sunflowerleaf" />
+
+  <project path="vendor/addons" name="Creative-OS/android_vendor_addons" />
+  <project path="vendor/google/raven" name="Creative-OS/proprietary_vendor_google_raven" remote="gitlab" revision="lineage-20.0" />
+  <project path="vendor/gms" name="Creative-OS/android_vendor_gms" remote="gitlab" revision="rice" clone-depth="1" />
+  <project path="vendor/lineage" name="Creative-OS/android_vendor_lineage" />
+  <project path="vendor/support" name="Flamingo-OS/vendor_support" remote="github" revision="A13" />
+</manifest>

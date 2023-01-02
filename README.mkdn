@@ -1,0 +1,169 @@
+<p align="center">
+<img src="https://github.com/ricedroidOSS/android/blob/thirteen/sushi.png">
+</p>
+
+What is RiceDroid?
+---------------
+Ricedroid is a FREE OPENSOURCE Android Operating System based on LineageOS and crDroid, that aims to provide necessary "ricing" aka customizations for ANDROID while being fast and stable. This operating system is highly inspired by Oxygen OS (10-11) and nothingOS, we strive to make things different but not too far from AOSP.
+
+Terminology
+---------------
+The rice in the project name can be referred to "rice" (food) itself, but in a sense it is indeed the term "ricing" in linux.
+
+
+Maintainership
+---------------
+Requirements:
+
+1. Device trees must be properly maintained, patches applied to the tree must be either rom source changes adaptation,bug fixes or improvements.
+2. Must have no known issues in his/her current device community.
+3. Approved by the maintainership application form reviewers. Maintainership application form link: https://docs.google.com/forms/d/e/1FAIpQLSdQjt9NvuzEEqxwvEVtGbCaoxaFFLoz7SRr8J1c_-kcn5EQBQ/viewform
+ 
+Getting Started
+---------------
+**Initialize local repository (thanks to apon77 for repo init script)**
+
+```bash
+repo init --depth=1 --no-repo-verify -u https://github.com/Creative-OS/android -b lineage-20.0 -g default,-mips,-darwin,-notdefault
+```
+**in case of repo syncing failures try this instead**
+
+```bash
+repo init -u https://github.com/Creative-OS/android -b lineage-20.0
+```
+
+**Sync up with this command:**
+```bash
+repo sync -c --no-clone-bundle --optimized-fetch --prune --force-sync -j$(nproc --all)
+
+```
+**Workaround for failing repositories**
+
+```
+Failing repos:
+system/core
+Try re-running with "-j1 --fail-fast" to exit at the first error.
+user@linux1-S:~/rice$ cd system/core
+user@linux1-S:~/rice/system/core$ git remote remove github
+user@linux1-S:~/rice/system/core$ git remote add github https://github.com/ricedroidOSS/android_system_core
+user@linux1-S:~/rice/system/core$ git fetch github
+remote: Enumerating objects: 204495, done.
+remote: Counting objects: 100% (204495/204495), done.
+remote: Compressing objects: 100% (84311/84311), done.
+remote: Total 204495 (delta 116667), reused 204374 (delta 116643), pack-reused 
+Receiving objects: 100% (204495/204495), 203.26 MiB | 23.42 MiB/s, done.
+Resolving deltas: 100% (116667/116667), done.
+From https://github.com/RiceDroid/android_system_core
+ * [new branch]          thirteen   -> github/thirteen
+ * [new branch]          twelve     -> github/twelve
+user@linux1-S:~/rice/system/core$ git switch thirteen
+user@linux1-S:~/rice/system/core$ git branch -f --track thirteen github/thirteen
+HEAD is now at xxxxxxx Congrats you can now resync without deleting folder!
+
+```
+
+Preparing device for this ROM
+---------------
+
+**Inherit Lineage vendor common stuffs**
+```bash
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+```
+
+**Adapt your device tree according to our fwb/hardware/vendor changes and use these flags to configure certain ROM properties**
+```bash
+
+# chipset flag enclose var with "" if more than one
+# friendly tip: builders can use init_xxx.cpp as workaround for spacing
+# e.g. property_override("ro.rice.chipset", "Snapdragon 870 5G");
+RICE_CHIPSET := "GoogleTensor"
+
+# chipset flag enclose var with "" if more than one
+# friendly tip: builders can use init_xxx.cpp as workaround for spacing
+# e.g. property_override("ro.rice.maintainer", "get riced");
+RICE_MAINTAINER := "a maintainer"
+
+# chipset flag enclose var with "" if more than one
+# this will reflect on build/display version, a firmware package/zip name 
+# e.g. riceDroid-7.0-COMMUNITY-device-AOSP.zip - AOSP is the default package type, WITH_GMS will override the package type to PIXEL
+RICE_PACKAGE_TYPE := "VANILLA AOSP"
+
+# Sushi Bootanimation (only 720/1080p/1440 supported. if not defined, bootanimation is google bootanimation)
+SUSHI_BOOTANIMATION := 720/1080/1440
+
+# disable/enable blur support, default is false
+TARGET_ENABLE_BLUR := true/false
+
+# UDFPS ICONS/ANIMATIONS
+TARGET_HAS_UDFPS := true/false
+
+# Allow usage of custom binary linker (LD), default is false
+TARGET_KERNEL_OPTIONAL_LD := true/false
+
+# Spoof build description/fingerprint as pixel device
+TARGET_USE_PIXEL_FINGERPRINT := true/false
+
+# GMS build flags, if none were defined the package build type will be AOSP (default: false)
+WITH_GMS := true/false - ship with GMS packages, replaces misc AOSP packages with Google packages.
+
+# Customized GMS Flags 
+# WITH_GMS flag is required
+
+# Opt out of google dialer support, compiler will build aosp dialer,
+# package type will change from PIXEL -> GMS
+TARGET_OPTOUT_GOOGLE_TELEPHONY := true/false
+
+# Compiler will only build GMS playstore services, its dependencies, and Gboard app.
+# package type will change from PIXEL/GMS -> CORE
+TARGET_CORE_GMS := true/false
+
+# extra flag under TARGET_CORE_GMS
+TARGET_CORE_GMS_EXTRAS := true/false - extra packages for core build type (velvet and photos)
+
+# We took some of Code Linaro optimizations and ported it to AOSP,
+# But due to some stuffs we were not able to make the system parse the device perfconfigstore.xml automatically
+# builders might need to tune runtime properties listed below (with reference and CLO counterparts)
+
+# Memory properties
+
+# Max cached app processes in system, overrides "config_customizedMaxCachedProcesses"
+persist.sys.fw.bg_apps_limit=96
+
+```
+
+Build
+---------------
+**Set up environment**
+```bash
+. build/envsetup.sh
+```
+**Build the code**
+```bash
+brunch "device_codename"
+```
+
+Credits
+---------------
+* [**AOSPA**](https://github.com/AOSPA)
+* [**AICP**](https://github.com/AICP)
+* [**Bootleggers**](https://github.com/BootleggersROM)
+* [**crDroid**](https://github.com/crdroidandroid)
+* [**Corvus-AOSP**](https://github.com/Corvus-R)
+* [**Derpfest**](https://github.com/Derpfest-12)
+* [**DotOS**](https://github.com/DotOS)
+* [**Evolution-X**](https://github.com/Evolution-X)
+* [**Flamingo-OS**](https://github.com/Flamingo-OS)
+* [**LineageOS**](https://github.com/LineageOS)
+* [**Octavi-OS**](https://github.com/Octavi-OS)
+* [**Omnirom**](https://github.com/omnirom)
+* [**PixelDust Caf**](https://github.com/pixeldust-project-caf)
+* [**Project-Fluid**](https://github.com/Project-Fluid)
+* [**Project Kaleidoscope**](https://github.com/Project-Kaleidoscope)
+* [**Project Radiant**](https://github.com/ProjectRadiant)
+* [**ricedroidOSS**](https://github.com/ricedroidOSS)
+* [**SparkOS**](https://github.com/Spark-Rom)
+* [**StagOS**](https://github.com/StagOS)
+* [**Xdroid-OSS**](https://github.com/xdroid-oss)
+
+
+
