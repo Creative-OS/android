@@ -47,17 +47,20 @@
   <project path="packages/apps/LineageParts" name="Creative-OS/android_packages_apps_LineageParts" />
   <project path="packages/apps/Settings" name="Creative-OS/android_packages_apps_Settings" groups="pdk-fs"  />
   <project path="packages/apps/ThemePicker" name="Creative-OS/android_packages_apps_ThemePicker" groups="pdk-fs" />
+  <project path="packages/apps/Updater" name="Creative-OS/android_packages_apps_Updater" groups="pdk-fs" />
   <project path="packages/modules/Connectivity" name="Creative-OS/android_packages_modules_Connectivity" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/modules/Permission" name="Creative-OS/android_packages_modules_Permission" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/services/Telecomm" name="Creative-OS/android_packages_services_Telecomm" groups="pdk-cw-fs,pdk-fs" />
 
   <project path="system/core" name="Creative-OS/android_system_core" groups="pdk" />
   <project path="system/sepolicy" name="Creative-OS/android_system_sepolicy" groups="pdk" />
+  <project path="system/update_engine" name="Creative-OS/android_system_update_engine" groups="pdk" />
   <project path="packages/apps/ParallelSpacePrebuilt" name="Project-Kaleidoscope/android_packages_apps_ParallelSpacePrebuilt" remote="gitlab" revision="sunflowerleaf" />
 
   <project path="vendor/addons" name="Creative-OS/android_vendor_addons" />
   <project path="vendor/google/raven" name="Creative-OS/proprietary_vendor_google_raven" remote="gitlab" revision="lineage-20.0" />
   <project path="vendor/gms" name="Creative-OS/android_vendor_gms" remote="gitlab" revision="rice" clone-depth="1" />
   <project path="vendor/lineage" name="Creative-OS/android_vendor_lineage" />
+  <project path="vendor/RiceDroidOTA" name="Creative-OS/android_vendor_RiceDroidOTA" />
   <project path="vendor/support" name="Flamingo-OS/vendor_support" remote="github" revision="A13" />
 </manifest>
