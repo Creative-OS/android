@@ -26,7 +26,7 @@
   <project name="Creative-OS/android_external_roboto-fonts" path="external/roboto-fonts" />
   <project name="Creative-OS/android_external_google-fonts_cutive-mono" path="external/google-fonts/cutive-mono" />
 
-  <project path="external/faceunlock" name="Creative-OS/android_external_faceunlock" remote="gitlab" revision="lineage-20.0" />
+  <project path="external/faceunlock" name="crdroidandroid/android_external_faceunlock" remote="gitlab" revision="13.0"/>
   <project path="external/colorkt" name="crdroidandroid/android_external_colorkt" remote="github" revision="13.0" />
   <project path="external/themelib" name="crdroidandroid/android_external_themelib" remote="github" revision="13.0" />
 
@@ -41,7 +41,7 @@
   <project path="lineage-sdk" name="Creative-OS/android_lineage-sdk" />
 
   <project path="packages/apps/crDroidSettings" name="Creative-OS/android_packages_apps_crDroidSettings" groups="pdk-fs" />
-  <project path="packages/apps/FaceUnlockService" name="Creative-OS/android_packages_apps_FaceUnlockService" />
+  <project path="packages/apps/FaceUnlockService" name="crdroidandroid/android_packages_apps_FaceUnlockService" revision="13.0" />
   <project path="packages/apps/GameSpace" name="ricedroidOSS/android_packages_apps_GameSpace" revision="thirteen" />
   <project path="packages/apps/Launcher3" name="Creative-OS/android_packages_apps_Launcher3" />
   <project path="packages/apps/LineageParts" name="Creative-OS/android_packages_apps_LineageParts" />
@@ -55,7 +55,7 @@
   <project path="system/core" name="Creative-OS/android_system_core" groups="pdk" />
   <project path="system/sepolicy" name="Creative-OS/android_system_sepolicy" groups="pdk" />
   <project path="system/update_engine" name="Creative-OS/android_system_update_engine" groups="pdk" />
-  <project path="packages/apps/ParallelSpacePrebuilt" name="Project-Kaleidoscope/android_packages_apps_ParallelSpacePrebuilt" remote="gitlab" revision="sunflowerleaf" />
+  <project path="packages/apps/ParallelSpace" name="crdroidandroid/android_packages_apps_ParallelSpace" revision="13.0" />
 
   <project path="vendor/addons" name="Creative-OS/android_vendor_addons" />
   <project path="vendor/google/raven" name="Creative-OS/proprietary_vendor_google_raven" remote="gitlab" revision="lineage-20.0" />
