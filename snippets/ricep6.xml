@@ -50,6 +50,7 @@
   <project path="packages/apps/Updater" name="Creative-OS/android_packages_apps_Updater" groups="pdk-fs" />
   <project path="packages/modules/Connectivity" name="Creative-OS/android_packages_modules_Connectivity" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/modules/Permission" name="Creative-OS/android_packages_modules_Permission" groups="pdk-cw-fs,pdk-fs" />
+  <project path="packages/services/OmniJaws" name="Creative-OS/android_packages_services_OmniJaws" groups="pdk-fs" />
   <project path="packages/services/Telecomm" name="Creative-OS/android_packages_services_Telecomm" groups="pdk-cw-fs,pdk-fs" />
 
   <project path="system/core" name="Creative-OS/android_system_core" groups="pdk" />
